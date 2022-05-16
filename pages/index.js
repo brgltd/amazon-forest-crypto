@@ -5,7 +5,25 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
 // import { useTheme } from "@mui/material/styles";
+
+function Item() {
+  return (
+    <Paper
+      sx={{
+        backgroundColor: "#fff",
+        padding: 1,
+        textAlign: "center",
+        color: "black",
+        height: "300px",
+      }}
+    >
+      <Typography>content</Typography>
+    </Paper>
+  );
+}
 
 function TabPanel({ children, value, index }) {
   return (
@@ -16,8 +34,47 @@ function TabPanel({ children, value, index }) {
       aria-labelledby={`images-tabpanel-${index}`}
     >
       {value === index && (
-        <Box sx={{ p: 1, m: 3, borderTop: 1, borderColor: "divider" }}>
-          <Typography>{children}</Typography>
+        <Box sx={{ paddingTop: 3, m: 3, borderTop: 1, borderColor: "divider" }}>
+          <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+              <Grid item xs={12} md={6} lg={4}>
+                <Item />
+              </Grid>
+            </Grid>
+          </Box>
         </Box>
       )}
     </div>

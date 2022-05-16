@@ -42,7 +42,7 @@ function Item() {
   );
 }
 
-function TabPanel({ children, value, index }) {
+function TabPanel({ value, index }) {
   return (
     <div
       role="tabpanel"
@@ -132,34 +132,32 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <div style={{ margin: "32px" }}>
+        <Box sx={{ margin: 4 }}>
           <Box>
-            <Box>
-              <Tabs
-                value={value}
-                onChange={onChange}
-                aria-label="amazon images tabs"
-                variant="scrollable"
-                scrollButtons="auto"
-                sx={{ marginLeft: 3 }}
-                orientation={orientation}
-              >
-                <Tab label="Recent" {...getAriaProps(0)} />
-                <Tab label="This Week" {...getAriaProps(1)} />
-                <Tab label="All Time" {...getAriaProps(2)} />
-              </Tabs>
-            </Box>
-            <TabPanel value={value} index={0}>
-              Recent
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-              This Week
-            </TabPanel>
-            <TabPanel value={value} index={2}>
-              All Time
-            </TabPanel>
+            <Tabs
+              value={value}
+              onChange={onChange}
+              aria-label="amazon images tabs"
+              variant="scrollable"
+              scrollButtons="auto"
+              sx={{ marginLeft: 3 }}
+              orientation={orientation}
+            >
+              <Tab label="Recent" {...getAriaProps(0)} />
+              <Tab label="This Week" {...getAriaProps(1)} />
+              <Tab label="All Time" {...getAriaProps(2)} />
+            </Tabs>
           </Box>
-        </div>
+          <TabPanel value={value} index={0}>
+            Recent
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            This Week
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            All Time
+          </TabPanel>
+        </Box>
       </div>
     </>
   );

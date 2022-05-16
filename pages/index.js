@@ -20,6 +20,9 @@ function Item() {
         height: "300px",
       }}
     >
+      <Typography variant="h2" sx={{ fontSize: 24, fontWeight: 600 }}>
+        My Title
+      </Typography>
       <Typography paragraph sx={{ p: 2, textAlign: "left" }}>
         The Amazon rainforest, alternatively, the Amazon jungle, is a moist
         broadleaf tropical rainforest in the Amazon biome that covers most of

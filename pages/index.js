@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
+import Image from "next/image";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
@@ -20,6 +21,15 @@ function Item() {
         height: "300px",
       }}
     >
+      <div style={{ position: "relative", width: 100, height: 100 }}>
+        <Image
+          height={100}
+          width={100}
+          src="/amazon-rainforest.jfif"
+          layout="fill"
+          alt="My Title"
+        />
+      </div>
       <Typography component="h2" sx={{ fontSize: 24, fontWeight: 600 }}>
         My Title
       </Typography>

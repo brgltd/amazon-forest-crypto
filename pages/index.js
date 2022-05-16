@@ -17,7 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Button variant="contained">Homepage</Button>
+        <Button variant="contained">Homepage button</Button>
       </div>
     </>
   );

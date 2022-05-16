@@ -15,29 +15,32 @@ function Item() {
     <Paper
       sx={{
         backgroundColor: "#fff",
-        padding: 1,
         textAlign: "center",
         color: "black",
-        height: "300px",
       }}
     >
-      <div style={{ position: "relative", width: 100, height: 100 }}>
-        <Image
-          height={100}
-          width={100}
-          src="/amazon-rainforest.jfif"
-          layout="fill"
-          alt="My Title"
-        />
+      <div style={{ position: "relative", width: "100%", height: 250 }}>
+        <Image src="/amazon-rainforest.jfif" layout="fill" alt="My Title" />
       </div>
-      <Typography component="h2" sx={{ fontSize: 24, fontWeight: 600 }}>
-        My Title
-      </Typography>
-      <Typography paragraph sx={{ p: 2, textAlign: "left" }}>
-        The Amazon rainforest, alternatively, the Amazon jungle, is a moist
-        broadleaf tropical rainforest in the Amazon biome that covers most of
-        the Amazon basin of South America
-      </Typography>
+      <Box>
+        <Typography
+          component="h2"
+          sx={{
+            p: "0 16px",
+            m: "16px 0",
+            fontSize: "24px",
+            fontWeight: 600,
+            textAlign: "left",
+          }}
+        >
+          My Title
+        </Typography>
+        <Typography paragraph sx={{ p: "0 16px 16px 16px", textAlign: "left" }}>
+          The Amazon rainforest, alternatively, the Amazon jungle, is a moist
+          broadleaf tropical rainforest in the Amazon biome that covers most of
+          the Amazon basin of South America
+        </Typography>
+      </Box>
     </Paper>
   );
 }

@@ -20,7 +20,7 @@ function Item() {
         height: "300px",
       }}
     >
-      <Typography variant="h2" sx={{ fontSize: 24, fontWeight: 600 }}>
+      <Typography component="h2" sx={{ fontSize: 24, fontWeight: 600 }}>
         My Title
       </Typography>
       <Typography paragraph sx={{ p: 2, textAlign: "left" }}>

@@ -62,7 +62,7 @@ function Item() {
           rel="noopened noreferrer"
           sx={{ position: "absolute", bottom: "12px", right: "16px" }}
         >
-          Help Link
+          Help
         </Button>
       </Box>
     </Paper>

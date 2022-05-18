@@ -11,7 +11,6 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-// import { useTheme } from "@mui/material/styles";
 
 function Item() {
   return (
@@ -135,10 +134,8 @@ function getAriaProps(i) {
 
 export default function Home() {
   const [value, setValue] = useState(0);
-  // const theme = useTheme();
 
   const isDesktop = useMediaQuery("(min-width:380px)");
-  // const isDesktop = useMediaQuery(theme.breakpoints.up("sm"));
   const orientation = isDesktop ? "horizontal" : "vertical";
 
   function onChange(event, newValue) {

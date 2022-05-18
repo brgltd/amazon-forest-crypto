@@ -38,10 +38,7 @@ function Item() {
         >
           My Title
         </Typography>
-        <Typography
-          paragraph
-          sx={{ p: "0 16px 3.5rem 16px", textAlign: "left" }}
-        >
+        <Typography paragraph sx={{ p: "0 16px 4rem 16px", textAlign: "left" }}>
           The Amazon rainforest, alternatively, the Amazon jungle, is a moist
           broadleaf tropical rainforest in the Amazon biome that covers most of
           the Amazon basin of South America
@@ -51,8 +48,8 @@ function Item() {
           size="large"
           sx={{
             position: "absolute",
-            bottom: "0px",
-            left: "0px",
+            bottom: "2px",
+            left: "4px",
             color: "green",
           }}
         >
@@ -64,7 +61,7 @@ function Item() {
           href="https://google.com"
           target="_blank"
           rel="noopened noreferrer"
-          sx={{ position: "absolute", bottom: "8px", right: "16px" }}
+          sx={{ position: "absolute", bottom: "12px", right: "16px" }}
         >
           Help Link
         </Button>

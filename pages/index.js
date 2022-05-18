@@ -8,6 +8,9 @@ import Typography from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 // import { useTheme } from "@mui/material/styles";
 
 function Item() {
@@ -22,7 +25,7 @@ function Item() {
       <div style={{ position: "relative", width: "100%", height: 250 }}>
         <Image src="/amazon-rainforest.jfif" layout="fill" alt="My Title" />
       </div>
-      <Box>
+      <Box sx={{ position: "relative" }}>
         <Typography
           component="h2"
           sx={{
@@ -35,11 +38,27 @@ function Item() {
         >
           My Title
         </Typography>
-        <Typography paragraph sx={{ p: "0 16px 16px 16px", textAlign: "left" }}>
+        <Typography
+          paragraph
+          sx={{ p: "0 16px 3.5rem 16px", textAlign: "left" }}
+        >
           The Amazon rainforest, alternatively, the Amazon jungle, is a moist
           broadleaf tropical rainforest in the Amazon biome that covers most of
           the Amazon basin of South America
         </Typography>
+        <IconButton
+          aria-label="like"
+          size="large"
+          sx={{
+            position: "absolute",
+            bottom: "0px",
+            left: "0px",
+            color: "green",
+          }}
+        >
+          <FavoriteIcon />
+          <Typography>10</Typography>
+        </IconButton>
       </Box>
     </Paper>
   );

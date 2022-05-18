@@ -59,6 +59,15 @@ function Item() {
           <FavoriteIcon />
           <Typography>10</Typography>
         </IconButton>
+        <Button
+          variant="contained"
+          href="https://google.com"
+          target="_blank"
+          rel="noopened noreferrer"
+          sx={{ position: "absolute", bottom: "8px", right: "16px" }}
+        >
+          Help Link
+        </Button>
       </Box>
     </Paper>
   );

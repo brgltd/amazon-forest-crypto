@@ -134,7 +134,6 @@ function getAriaProps(i) {
 
 export default function Home() {
   const [value, setValue] = useState(0);
-
   const isDesktop = useMediaQuery("(min-width:380px)");
   const orientation = isDesktop ? "horizontal" : "vertical";
 
@@ -157,6 +156,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box sx={{ margin: 4 }}>
+        {/*eslint-disable-next-line*/}
+        <img
+          src="https://bafybeicfw5dnpyu2kjfnhl4mnl62xjiwhkho373wjj54mqlfnglsp3wjka.ipfs.dweb.link/js.png"
+          alt="123"
+        />
         <Box>
           <Tabs
             value={value}

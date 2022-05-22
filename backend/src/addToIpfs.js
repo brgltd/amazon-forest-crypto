@@ -6,9 +6,6 @@ require("dotenv/config");
 
 const token = process.env.TOKEN;
 
-console.log("token");
-console.log(token);
-
 async function fileFromPath(filePath) {
   const content = fs.readFileSync(filePath);
   const type = mime.getType(filePath);

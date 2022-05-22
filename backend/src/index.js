@@ -3,7 +3,6 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 const fs = require("fs");
-const generateFilename = require("./generateFilename");
 const addToIpfs = require("./addToIpfs");
 
 const app = express();
@@ -21,8 +20,6 @@ if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
 
-const db = [];
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "public");
@@ -34,12 +31,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage }).single("file");
 
+const db = [];
+
 app.post("/image", (req, res) => {
   upload(req, res, (err) => {
     if (err) {
       res.sendStatus(500);
     }
-    // const filename = generateFilename(req.file.originalname);
     const filename = req.file.originalname;
     db.push({ filename });
     res.send(req.file);
@@ -55,8 +53,13 @@ app.post("/metadata", async (req, res) => {
   db[db.length - 1] = { ...db[db.length - 1], ...meta };
   const entity = db[db.length - 1];
   const ipfsResult = await addToIpfs(entity);
-  console.log("ipfsResult");
-  console.log(ipfsResult);
+  const cid = ipfsResult.ipnft;
+  db[db.length - 1] = { ...db[db.length - 1], cid };
+  res.send(cid);
+});
+
+app.get("/assets", (req, res) => {
+  res.status(201).json(db);
 });
 
 app.listen(5000, () => console.log(`Listening on 5000`));

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import axios from "axios";
 import styles from "./upload-form.module.css";
 
 export default function CreateItem() {
@@ -13,36 +14,30 @@ export default function CreateItem() {
   const router = useRouter();
 
   function onClick() {
-    // console.log(form);
-
     async function postData() {
-      if (!form.title || !form.description || !form.img) {
+      const { title, description, img } = form;
+      if (!title || !description || !img) {
         return;
       }
       try {
-        console.log("calling fetch");
-        const res = await fetch("http://localhost:5001/image", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ k: "v" }),
+        const data = new FormData();
+        data.append("file", img);
+        await axios.post("http://localhost:5000/image", data);
+        await axios.post("https://localhost:5000/metadata", {
+          ...form,
+          fileName: img.name,
         });
-        console.log("res");
-        console.log(res);
       } catch (error) {
         console.log("fetch error");
         console.log(error);
       }
     }
-
     postData();
   }
 
   return (
     <div className={styles.root}>
-      <div className={styles.container}>
+      <form className={styles.container}>
         <div className={styles.title}>
           <TextField
             label="Title"
@@ -67,7 +62,7 @@ export default function CreateItem() {
         <Button variant="contained" onClick={onClick}>
           ADD IMAGE
         </Button>
-      </div>
+      </form>
     </div>
   );
 }

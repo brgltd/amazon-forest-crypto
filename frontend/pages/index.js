@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";

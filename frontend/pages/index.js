@@ -157,11 +157,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box sx={{ margin: 4 }}>
-        <Link href="/upload" passHref>
-          <Button variant="contained" color="info" as="a" size="large">
-            About
-          </Button>
-        </Link>
         {/* <img
           src="https://bafybeicfw5dnpyu2kjfnhl4mnl62xjiwhkho373wjj54mqlfnglsp3wjka.ipfs.dweb.link/js.png"
           alt="123"

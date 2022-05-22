@@ -51,7 +51,7 @@ app.post("/metadata", (req, res) => {
     description: req.body.description,
     date: Date.now(),
   };
-  db[db.length - 1] = { ...db[db.length - 1], meta };
+  db[db.length - 1] = { ...db[db.length - 1], ...meta };
   console.log("db");
   console.log(db);
 });

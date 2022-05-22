@@ -13,7 +13,31 @@ export default function CreateItem() {
   const router = useRouter();
 
   function onClick() {
-    console.log(form);
+    // console.log(form);
+
+    async function postData() {
+      if (!form.title || !form.description || !form.img) {
+        return;
+      }
+      try {
+        console.log("calling fetch");
+        const res = await fetch("http://localhost:5001/image", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ k: "v" }),
+        });
+        console.log("res");
+        console.log(res);
+      } catch (error) {
+        console.log("fetch error");
+        console.log(error);
+      }
+    }
+
+    postData();
   }
 
   return (

@@ -1,5 +1,6 @@
 function uploadImg(req) {
-  console.log("this should export an img to ipfs");
+  console.log("uploadImg");
+  console.log(req);
 }
 
 module.exports = uploadImg;

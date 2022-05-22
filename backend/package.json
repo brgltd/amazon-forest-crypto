@@ -10,7 +10,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.15.2",
-    "multer": "^1.4.4"
+    "mime": "^3.0.0",
+    "multer": "^1.4.4",
+    "nft.storage": "^6.3.0"
   },
   "devDependencies": {
     "got": "^11.3.0",

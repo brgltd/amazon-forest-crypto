@@ -53,12 +53,16 @@ app.post("/metadata", async (req, res) => {
   db[db.length - 1] = { ...db[db.length - 1], ...meta };
   const entity = db[db.length - 1];
   const ipfsResult = await addToIpfs(entity);
+  console.log("ipfsResult");
+  console.log(ipfsResult);
   const cid = ipfsResult.ipnft;
   db[db.length - 1] = { ...db[db.length - 1], cid };
   res.send(cid);
 });
 
 app.get("/assets", (req, res) => {
+  console.log("returning");
+  console.log(db);
   res.status(201).json(db);
 });
 

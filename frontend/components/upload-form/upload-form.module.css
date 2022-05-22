@@ -23,5 +23,12 @@
 }
 
 .file {
+  margin-bottom: 2rem;
+}
+
+.fileInput {
+  border-radius: 8px;
+  border: 1px solid gray;
   margin-bottom: 4rem;
+  padding: 0 8px;
 }

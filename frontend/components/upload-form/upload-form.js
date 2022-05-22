@@ -54,12 +54,15 @@ export default function CreateItem() {
           className={styles.description}
           onChange={(e) => setForm({ ...form, description: e.target.value })}
         />
-        <input
-          type="file"
-          name="Asset"
-          className={styles.file}
-          onChange={(e) => setForm({ ...form, img: e.target.files[0] })}
-        />
+        <div className={styles.fileInput}>
+          <p className={styles.req}>Please, only add png or jpg.</p>
+          <input
+            type="file"
+            name="Asset"
+            className={styles.file}
+            onChange={(e) => setForm({ ...form, img: e.target.files[0] })}
+          />
+        </div>
         <Button variant="contained" onClick={onClick}>
           ADD IMAGE
         </Button>

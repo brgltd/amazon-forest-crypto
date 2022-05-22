@@ -1,5 +1,6 @@
-const express = require("express");
-const path = require("path");
+import express from "express";
+import "dotenv/config";
+
 const PORT = process.env.PORT || 5000;
 
 express()

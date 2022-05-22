@@ -3,18 +3,21 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon"
   },
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.15.2"
   },
   "devDependencies": {
     "got": "^11.3.0",
+    "nodemon": "^2.0.16",
     "tape": "^4.7.0"
   },
   "keywords": [
     "node",
     "express"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }

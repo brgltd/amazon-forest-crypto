@@ -28,9 +28,10 @@ export default function CreateItem() {
           fileName: img.name,
         });
       } catch (error) {
-        console.log("fetch error");
-        console.log(error);
+        console.error("fetch error");
+        console.error(error);
       }
+      router.push("/");
     }
     postData();
   }

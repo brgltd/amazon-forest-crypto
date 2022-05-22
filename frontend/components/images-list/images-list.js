@@ -14,14 +14,6 @@ export default function ImagesList() {
       try {
         const res = await axios.get("http://localhost:5000/assets");
         const data = res.data;
-        // const ipnft =
-        //   "bafyreigm6r62zinetirlqiiqeavibdotcwu3slgwualhljbkwvfhhmgbki";
-        // const metadataUrl = `https://${ipnft}.ipfs.dweb.link/metadata.json`;
-        // const metadata = await axios.get(metadataUrl);
-        // const img = metadata.data.image;
-        // const imgUrl = `https://${img
-        //   .replace("ipfs://", "")
-        //   .replace("/", ".ipfs.dweb.link/")}`;
         const newData = await Promise.all(
           data.map(async (item) => {
             console.log("item");

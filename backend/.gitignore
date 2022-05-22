@@ -14,4 +14,4 @@ docker-compose.yml
 .env
 
 # Images folder
-public/
+public/   

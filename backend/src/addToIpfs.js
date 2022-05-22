@@ -2,8 +2,12 @@ const { NFTStorage, File } = require("nft.storage");
 const mime = require("mime");
 const fs = require("fs");
 const path = require("path");
+require("dotenv/config");
 
 const token = process.env.TOKEN;
+
+console.log("token");
+console.log(token);
 
 async function fileFromPath(filePath) {
   const content = fs.readFileSync(filePath);

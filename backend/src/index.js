@@ -5,7 +5,6 @@ const multer = require("multer");
 const fs = require("fs");
 const generateFilename = require("./generateFilename");
 const addToIpfs = require("./addToIpfs");
-require("dotenv/config");
 
 const app = express();
 app.use(cors());
@@ -55,9 +54,9 @@ app.post("/metadata", async (req, res) => {
   };
   db[db.length - 1] = { ...db[db.length - 1], ...meta };
   const entity = db[db.length - 1];
-  await addToIpfs(entity);
-  console.log("db");
-  console.log(db);
+  const ipfsResult = await addToIpfs(entity);
+  // console.log("ipfsResult");
+  // console.log(ipfsResult)
 });
 
 app.listen(5000, () => console.log(`Listening on 5000`));

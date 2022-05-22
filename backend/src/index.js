@@ -55,8 +55,8 @@ app.post("/metadata", async (req, res) => {
   db[db.length - 1] = { ...db[db.length - 1], ...meta };
   const entity = db[db.length - 1];
   const ipfsResult = await addToIpfs(entity);
-  // console.log("ipfsResult");
-  // console.log(ipfsResult)
+  console.log("ipfsResult");
+  console.log(ipfsResult);
 });
 
 app.listen(5000, () => console.log(`Listening on 5000`));

@@ -34,36 +34,55 @@ const upload = multer({ storage }).single("file");
 const db = [];
 
 app.post("/image", (req, res) => {
-  upload(req, res, (err) => {
-    if (err) {
-      res.sendStatus(500);
-    }
-    const filename = req.file.originalname;
-    db.push({ filename });
-    res.send(req.file);
-  });
+  try {
+    upload(req, res, (err) => {
+      if (err) {
+        res.sendStatus(500);
+      }
+      const filename = req.file.originalname;
+      db.push({ filename });
+      res.send(req.file);
+    });
+  } catch (error) {
+    console.error("/image error");
+    console.error(error);
+    res.sendStatus(500);
+  }
 });
 
 app.post("/metadata", async (req, res) => {
-  const meta = {
-    title: req.body.title,
-    description: req.body.description,
-    date: Date.now(),
-  };
-  db[db.length - 1] = { ...db[db.length - 1], ...meta };
-  const entity = db[db.length - 1];
-  const ipfsResult = await addToIpfs(entity);
-  console.log("ipfsResult");
-  console.log(ipfsResult);
-  const cid = ipfsResult.ipnft;
-  db[db.length - 1] = { ...db[db.length - 1], cid };
-  res.send(cid);
+  try {
+    const meta = {
+      title: req.body.title,
+      description: req.body.description,
+      date: Date.now(),
+    };
+    db[db.length - 1] = { ...db[db.length - 1], ...meta };
+    const entity = db[db.length - 1];
+    const ipfsResult = await addToIpfs(entity);
+    console.log("ipfsResult");
+    console.log(ipfsResult);
+    const cid = ipfsResult.ipnft;
+    db[db.length - 1] = { ...db[db.length - 1], cid };
+    res.send(cid);
+  } catch (error) {
+    console.error("/metadata error");
+    console.error(error);
+    db.pop();
+    res.sendStatus(500);
+  }
 });
 
 app.get("/assets", (req, res) => {
-  console.log("returning");
-  console.log(db);
-  res.status(201).json(db);
+  try {
+    console.log("returning");
+    console.log(db);
+    res.status(201).json(db);
+  } catch (error) {
+    console.error("/assets error");
+    console.error(error);
+    res.sendStatus(500);
+  }
 });
 
 app.listen(5000, () => console.log(`Listening on 5000`));

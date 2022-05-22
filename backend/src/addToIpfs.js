@@ -24,6 +24,7 @@ async function storeNft(imagePath, name, description) {
 }
 
 async function addToIpfs(entity) {
+  throw new Error("ipfs error");
   const { filename, title, description } = entity;
   const imagePath = `./public/${filename}`;
   const result = await storeNft(imagePath, title, description);

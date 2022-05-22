@@ -1,8 +1,17 @@
-import express from "express";
-import "dotenv/config";
+const express = require("express");
+const uploadImg = require("./uploadImg");
 
-const PORT = process.env.PORT || 5000;
+require("dotenv/config");
 
-express()
-  .get("/", (req, res) => res.status(200).json({ k: "v" }))
-  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+const app = express();
+const port = process.env.PORT || 5000;
+
+app
+  .get("/data", (req, res) => {
+    res.send(200).json({ k: "v" });
+  })
+  .post("/image", (req, res) => {
+    uploadImg(req);
+    res.status(201);
+  })
+  .listen(port, () => console.log(`Listening on ${port}`));

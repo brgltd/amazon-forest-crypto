@@ -6,12 +6,15 @@ import styles from "./upload-form.module.css";
 
 export default function CreateItem() {
   const [form, setForm] = useState({
-    price: "",
+    title: "",
     description: "",
+    img: null,
   });
   const router = useRouter();
 
-  async function onChange(e) {}
+  function onClick() {
+    console.log(form);
+  }
 
   return (
     <div className={styles.root}>
@@ -23,6 +26,7 @@ export default function CreateItem() {
             sx={{
               width: "100%",
             }}
+            onChange={(e) => setForm({ ...form, title: e.target.value })}
           />
         </div>
         <textarea
@@ -34,9 +38,11 @@ export default function CreateItem() {
           type="file"
           name="Asset"
           className={styles.file}
-          onChange={onChange}
+          onChange={(e) => setForm({ ...form, img: e.target.files[0] })}
         />
-        <Button variant="contained">ADD IMAGE</Button>
+        <Button variant="contained" onClick={onClick}>
+          ADD IMAGE
+        </Button>
       </div>
     </div>
   );

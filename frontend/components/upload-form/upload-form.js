@@ -23,7 +23,7 @@ export default function CreateItem() {
         const data = new FormData();
         data.append("file", img);
         await axios.post("http://localhost:5000/image", data);
-        await axios.post("https://localhost:5000/metadata", {
+        await axios.post("http://localhost:5000/metadata", {
           ...form,
           fileName: img.name,
         });

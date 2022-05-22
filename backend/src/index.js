@@ -4,7 +4,6 @@ const bodyParser = require("body-parser");
 const multer = require("multer");
 const fs = require("fs");
 const generateFilename = require("./generateFilename");
-
 require("dotenv/config");
 
 const app = express();
@@ -22,7 +21,6 @@ const storage = multer.diskStorage({
     cb(null, "public");
   },
   filename: (req, file, cb) => {
-    // cb(null, `${Date.now()}-${file.originalname}`);
     cb(null, generateFilename(file.originalname));
   },
 });
@@ -34,18 +32,28 @@ if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir);
 }
 
-const db = {};
+const db = [];
+
 app.post("/image", (req, res) => {
   upload(req, res, (err) => {
     if (err) {
       res.sendStatus(500);
     }
-    const name = generateFilename(req.file.originalname);
-    db[name] = { title: "", description: "", date: Date.now() };
+    const filename = generateFilename(req.file.originalname);
+    db.push({ filename });
     res.send(req.file);
   });
 });
 
-app.post("/metadata", (req, res) => {});
+app.post("/metadata", (req, res) => {
+  const meta = {
+    title: req.body.title,
+    description: req.body.description,
+    date: Date.now(),
+  };
+  db[db.length - 1] = { ...db[db.length - 1], meta };
+  console.log("db");
+  console.log(db);
+});
 
 app.listen(5000, () => console.log(`Listening on 5000`));

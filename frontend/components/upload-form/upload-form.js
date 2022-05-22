@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import styles from "./upload-form.module.css";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import styles from "./upload-form.module.css";
 
 export default function CreateItem() {
-  const [fileUrl, setFileUrl] = useState(null);
-  const [formInput, updateFormInput] = useState({
+  const [form, setForm] = useState({
     price: "",
     description: "",
   });
@@ -29,9 +28,7 @@ export default function CreateItem() {
         <textarea
           placeholder="Description"
           className={styles.description}
-          onChange={(e) =>
-            updateFormInput({ ...formInput, description: e.target.value })
-          }
+          onChange={(e) => setForm({ ...form, description: e.target.value })}
         />
         <input
           type="file"
@@ -39,7 +36,6 @@ export default function CreateItem() {
           className={styles.file}
           onChange={onChange}
         />
-        {/* {fileUrl && <img className="" src={fileUrl} />} */}
         <Button variant="contained">ADD IMAGE</Button>
       </div>
     </div>

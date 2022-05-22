@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
@@ -156,11 +157,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box sx={{ margin: 4 }}>
-        {/*eslint-disable-next-line*/}
-        <img
+        <Link href="/upload" passHref>
+          <Button variant="contained" color="info" as="a" size="large">
+            About
+          </Button>
+        </Link>
+        {/* <img
           src="https://bafybeicfw5dnpyu2kjfnhl4mnl62xjiwhkho373wjj54mqlfnglsp3wjka.ipfs.dweb.link/js.png"
           alt="123"
-        />
+        /> */}
         <Box>
           <Tabs
             value={value}

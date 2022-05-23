@@ -11,6 +11,7 @@ export default function CreateItem() {
     description: "",
     img: null,
   });
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
   function onClick() {
@@ -19,6 +20,7 @@ export default function CreateItem() {
       if (!title || !description || !img) {
         return;
       }
+      setIsLoading(true);
       try {
         const data = new FormData();
         data.append("file", img);
@@ -28,7 +30,7 @@ export default function CreateItem() {
           fileName: img.name,
         });
       } catch (error) {
-        console.error("fetch error");
+        console.error("error submitting data");
         console.error(error);
       }
       router.push("/");
@@ -66,6 +68,7 @@ export default function CreateItem() {
         <Button variant="contained" onClick={onClick}>
           ADD IMAGE
         </Button>
+        {isLoading && <div className={styles.spinner} />}
       </form>
     </div>
   );

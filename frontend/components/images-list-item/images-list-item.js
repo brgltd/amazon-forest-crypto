@@ -31,7 +31,10 @@ export default function Item({ title, description, imgUrl }) {
         >
           {title}
         </Typography>
-        <Typography paragraph sx={{ p: "0 16px 4rem 16px", textAlign: "left" }}>
+        <Typography
+          paragraph
+          sx={{ p: "0 16px 4rem 16px", textAlign: "left", height: "160px" }}
+        >
           {description}
         </Typography>
         <IconButton
@@ -45,17 +48,7 @@ export default function Item({ title, description, imgUrl }) {
           }}
         >
           <FavoriteIcon />
-          {/* <Typography>10</Typography> */}
         </IconButton>
-        {/* <Button
-          variant="contained"
-          href="https://google.com"
-          target="_blank"
-          rel="noopened noreferrer"
-          sx={{ position: "absolute", bottom: "12px", right: "16px" }}
-        >
-          Help
-        </Button> */}
       </Box>
     </Paper>
   );

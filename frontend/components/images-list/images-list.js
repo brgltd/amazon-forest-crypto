@@ -25,7 +25,9 @@ export default function ImagesList() {
                 .replace("/", ".ipfs.dweb.link/")}`;
               return { ...item, imgUrl };
             }
-            return { ...item, imgUrl: null };
+            // If getting the image fails, but getting the title and description works.
+            // Let's show a static image with the newly added title and description.
+            return { ...item, imgUrl: "/amazon4.jpg" };
           })
         );
         setAssets(newData);

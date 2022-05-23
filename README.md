@@ -11,6 +11,7 @@ https://user-images.githubusercontent.com/58914258/169735266-fd9a5351-46cd-44e3-
 ## Important
 
 If you're from IPFS/Filecoin, ignore the email that I've submitted on gitcoin: "brgltd@gmail.com".
+
 Please, use this email to communicate with me if necessary: "brgltdxyz@gmail.com".
 
 ## Project highlights

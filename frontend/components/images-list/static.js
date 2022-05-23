@@ -3,7 +3,7 @@
 export const staticData = [
   {
     filename: "amazon2.jpg",
-    title: "High",
+    title: "Vast Environment",
     description:
       "The rainforest likely formed during the Eocene era (from 56 million years to 33.9 million years ago). It appeared following a global reduction of tropical temperatures when the Atlantic Ocean had widened sufficiently to provide a warm, moist climate to the Amazon basin.",
     date: 1653260049620,

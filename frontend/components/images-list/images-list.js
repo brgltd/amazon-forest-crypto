@@ -28,7 +28,6 @@ export default function ImagesList() {
             return { ...item, imgUrl: null };
           })
         );
-        console.log(JSON.stringify(newData));
         setAssets(newData);
       } catch (error) {
         console.error("error fetching data");

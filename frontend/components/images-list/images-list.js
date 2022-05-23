@@ -4,6 +4,7 @@ import Grid from "@mui/material/Grid";
 import axios from "axios";
 import Item from "../images-list-item/images-list-item";
 import { staticData } from "./static";
+import { CONFIG } from "../../config";
 
 export default function ImagesList() {
   const [assets, setAssets] = useState([]);
@@ -11,7 +12,7 @@ export default function ImagesList() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const res = await axios.get("http://localhost:5000/assets");
+        const res = await axios.get(`${CONFIG.API}/assets`);
         const data = res.data;
         const newData = await Promise.all(
           data.map(async (item) => {

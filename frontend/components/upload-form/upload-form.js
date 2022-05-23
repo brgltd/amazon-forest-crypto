@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
+import { CONFIG } from "../../config";
 import styles from "./upload-form.module.css";
 
 export default function CreateItem() {
@@ -24,8 +25,8 @@ export default function CreateItem() {
       try {
         const data = new FormData();
         data.append("file", img);
-        await axios.post("http://localhost:5000/image", data);
-        await axios.post("http://localhost:5000/metadata", {
+        await axios.post(`${CONFIG.API}/image`, data);
+        await axios.post(`${CONFIG.API}/metadata`, {
           ...form,
           fileName: img.name,
         });
